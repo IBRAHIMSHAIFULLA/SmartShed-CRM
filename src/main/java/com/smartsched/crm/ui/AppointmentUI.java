@@ -15,7 +15,8 @@ public class AppointmentUI {
             System.out.println("\n=== Appointment Management ===");
             System.out.println("1. Add Appointment");
             System.out.println("2. View Appointments");
-            System.out.println("3. Back");
+            System.out.println("3. Cancel Appointment");
+            System.out.println("4. Back");
             System.out.print("Enter choice: ");
 
             int ch = Integer.parseInt(sc.nextLine());
@@ -23,9 +24,11 @@ public class AppointmentUI {
             switch (ch) {
                 case 1 -> addAppointment();
                 case 2 -> viewAppointments();
-                case 3 -> { return; }
+                case 3 -> cancelAppointment();
+                case 4 -> { return; }
                 default -> System.out.println("Invalid choice!");
             }
+
         }
     }
 
@@ -84,4 +87,17 @@ public class AppointmentUI {
             e.printStackTrace();
         }
     }
+    private void cancelAppointment() {
+    try {
+        System.out.print("Enter Appointment ID to cancel: ");
+        int id = Integer.parseInt(sc.nextLine());
+
+        dao.cancelAppointment(id);
+        System.out.println("❌ Appointment cancelled");
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
 }
