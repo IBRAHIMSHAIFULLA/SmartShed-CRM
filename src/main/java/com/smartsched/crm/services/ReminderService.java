@@ -21,7 +21,10 @@ public class ReminderService {
                          .minusMinutes(r.getReminderOffsetMinutes());
 
                 if (now.isAfter(reminderTime) && r.getLastSentAt() == null) {
-                    System.out.println("🔔 Reminder for Appointment ID: " + r.getAppointmentId());
+System.out.println(
+    "🔔 Reminder: " + r.getAppointmentTitle() +
+    " at " + r.getAppointmentDateTime()
+);
                     dao.markSent(r.getId());
                 }
             }

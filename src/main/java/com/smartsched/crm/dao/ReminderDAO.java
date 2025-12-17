@@ -17,16 +17,18 @@ public class ReminderDAO {
 
         String sql = """
             SELECT r.id,
-                   r.appointment_id,
-                   r.reminder_offset_minutes,
-                   r.last_sent_at,
-                   r.is_active,
-                   a.appointment_date,
-                   a.appointment_time
-            FROM reminders r
-            JOIN appointments a ON r.appointment_id = a.appointment_id
-            WHERE r.is_active = TRUE
-              AND a.status = 'SCHEDULED'
+       r.appointment_id,
+       r.reminder_offset_minutes,
+       r.last_sent_at,
+       r.is_active,
+       a.title,
+       a.appointment_date,
+       a.appointment_time
+FROM reminders r
+JOIN appointments a ON r.appointment_id = a.appointment_id
+WHERE r.is_active = TRUE
+  AND a.status = 'SCHEDULED'
+
         """;
 
         try (Connection con = Database.getConnection();
@@ -38,6 +40,7 @@ public class ReminderDAO {
                 Reminder r = new Reminder();
                 r.setId(rs.getInt("id"));
                 r.setAppointmentId(rs.getInt("appointment_id"));
+                r.setAppointmentTitle(rs.getString("title"));
                 r.setReminderOffsetMinutes(rs.getInt("reminder_offset_minutes"));
                 r.setActive(rs.getBoolean("is_active"));
 

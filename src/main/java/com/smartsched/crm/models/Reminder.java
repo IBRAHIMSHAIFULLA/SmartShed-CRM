@@ -60,4 +60,14 @@ public class Reminder {
     public void setActive(boolean active) {
         isActive = active;
     }
+    private String appointmentTitle;
+
+public String getAppointmentTitle() {
+    return appointmentTitle;
+}
+
+public void setAppointmentTitle(String appointmentTitle) {
+    this.appointmentTitle = appointmentTitle;
+}
+
 }
