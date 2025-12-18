@@ -6,8 +6,8 @@ SmartSched CRM is a console-based Java CRM application built using MVC architect
 
 ## 🔹 Key Features
 
-* Client Management – Add and view client details
-* Appointment Management – Schedule and view appointments
+* Client Management – Add, edit, view and delete client details
+* Appointment Management – Schedule, view and cancel appointments
 * Dashboard – View total clients, today’s appointments, and pending reminders
 * Automated Reminders – Background reminder system using Java Scheduler
 * Clean Architecture – Proper separation of UI, Service, DAO, and Model layers
@@ -45,9 +45,6 @@ SmartSched CRM is a console-based Java CRM application built using MVC architect
 
 * 📧 Email Alerts
   Automated email reminders sent to clients before appointments using JavaMail API.
-
-* ✏ Appointment Update & Cancel
-  Allows rescheduling or cancelling appointments with automatic status and reminder updates.
 
 * 👤 User Roles (Admin / Staff)
   Role-based access control to restrict features based on user permissions.
